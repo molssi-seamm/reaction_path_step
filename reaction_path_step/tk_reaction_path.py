@@ -3,12 +3,11 @@
 """The graphical part of a Reaction Path step"""
 
 import pprint  # noqa: F401
-import tkinter as tk
+import tkinter as tk  # noqa: F401
 
 import reaction_path_step  # noqa: F401
 import seamm
 from seamm_util import ureg, Q_, units_class  # noqa: F401
-
 
 
 class TkReactionPath(seamm.TkNode):
@@ -125,9 +124,7 @@ class TkReactionPath(seamm.TkNode):
         self.dialog.geometry(f"{w}x{h}+{x}+{y}")
 
         self.tk_subflowchart = seamm.TkFlowchart(
-            master=frame,
-            flowchart=self.node.subflowchart,
-            namespace=self.namespace
+            master=frame, flowchart=self.node.subflowchart, namespace=self.namespace
         )
         self.tk_subflowchart.draw()
 

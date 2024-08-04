@@ -66,7 +66,7 @@ class ReactionPath(seamm.Node):
         title="Reaction Path",
         namespace="org.molssi.seamm.reaction_path",
         extension=None,
-        logger=logger
+        logger=logger,
     ):
         """A step for Reaction Path in a SEAMM flowchart.
 
@@ -93,9 +93,7 @@ class ReactionPath(seamm.Node):
         """
         logger.debug(f"Creating Reaction Path {self}")
         self.subflowchart = seamm.Flowchart(
-            parent=self,
-            name="Reaction Path",
-            namespace=namespace
+            parent=self, name="Reaction Path", namespace=namespace
         )  # yapf: disable
 
         super().__init__(
@@ -117,6 +115,7 @@ class ReactionPath(seamm.Node):
     def git_revision(self):
         """The git version of this module."""
         return reaction_path_step.__git_revision__
+
     def set_id(self, node_id):
         """Set the id for node to a given tuple"""
         self._id = node_id
@@ -151,21 +150,19 @@ class ReactionPath(seamm.Node):
             try:
                 text += __(node.description_text(), indent=3 * " ").__str__()
             except Exception as e:
-                print(
-                    f"Error describing reaction_path flowchart: {e} in {node}"
-                )
+                print(f"Error describing reaction_path flowchart: {e} in {node}")
                 logger.critical(
                     f"Error describing reaction_path flowchart: {e} in {node}"
                 )
                 raise
             except:  # noqa: E722
                 print(
-                    "Unexpected error describing reaction_path flowchart: {} in {}"
-                    .format(sys.exc_info()[0], str(node))
+                    "Unexpected error describing reaction path flowchart: "
+                    f"{sys.exc_info()[0]} in {str(node)}"
                 )
-                logger.critical(
-                    "Unexpected error describing reaction_path flowchart: {} in {}"
-                    .format(sys.exc_info()[0], str(node))
+                self.logger.critical(
+                    "Unexpected error describing reaction path flowchart: "
+                    f"{sys.exc_info()[0]} in {str(node)}"
                 )
                 raise
             text += "\n"
@@ -200,9 +197,7 @@ class ReactionPath(seamm.Node):
 
         local = seamm.ExecLocal()
         result = local.run(
-            cmd=["Reaction Path", "-in", "molssi.dat"],
-            files=files,
-            return_files=[]
+            cmd=["Reaction Path", "-in", "molssi.dat"], files=files, return_files=[]
         )  # yapf: disable
 
         if result is None:
