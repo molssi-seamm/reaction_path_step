@@ -4,10 +4,12 @@
 
 import pprint  # noqa: F401
 import tkinter as tk  # noqa: F401
+import tkinter.ttk as ttk
 
-import reaction_path_step  # noqa: F401
+from .reaction_path_parameters import ReactionPathParameters
 import seamm
 from seamm_util import ureg, Q_, units_class  # noqa: F401
+import seamm_widgets as sw
 
 
 class TkReactionPath(seamm.TkNode):
@@ -34,7 +36,7 @@ class TkReactionPath(seamm.TkNode):
         The height in pixels of the picture of the node
     self[widget] : dict
         A dictionary of tk widgets built using the information
-        contained in Reaction Path_parameters.py
+        contained in reaction_path_parameters.py
 
     See Also
     --------
@@ -46,7 +48,7 @@ class TkReactionPath(seamm.TkNode):
         self,
         tk_flowchart=None,
         node=None,
-        namespace="org.molssi.seamm.reaction_path.tk",
+        namespace="org.molssi.seamm.tk",
         canvas=None,
         x=None,
         y=None,
@@ -96,7 +98,7 @@ class TkReactionPath(seamm.TkNode):
     def create_dialog(self):
         """
         Create the dialog. A set of widgets will be chosen by default
-        based on what is specified in the Reaction Path_parameters
+        based on what is specified in the ReactionPathParameters
         module.
 
         Parameters
@@ -112,7 +114,7 @@ class TkReactionPath(seamm.TkNode):
         TkReactionPath.reset_dialog
         """
 
-        frame = super().create_dialog(title="Reaction Path")
+        frame = super().create_dialog(title="Reaction Path", widget="notebook")
         # make it large!
         screen_w = self.dialog.winfo_screenwidth()
         screen_h = self.dialog.winfo_screenheight()
@@ -123,10 +125,192 @@ class TkReactionPath(seamm.TkNode):
 
         self.dialog.geometry(f"{w}x{h}+{x}+{y}")
 
+        # Add a frame for the flowchart
+        notebook = self["notebook"]
+        flowchart_frame = ttk.Frame(notebook)
+        self["flowchart frame"] = flowchart_frame
+        notebook.add(flowchart_frame, text="Flowchart", sticky=tk.NSEW)
+
         self.tk_subflowchart = seamm.TkFlowchart(
-            master=frame, flowchart=self.node.subflowchart, namespace=self.namespace
+            master=flowchart_frame,
+            flowchart=self.node.subflowchart,
+            namespace=self.namespace,
         )
         self.tk_subflowchart.draw()
+
+        # Fill in the control parameters
+        # Shortcut for parameters
+        P = self.node.parameters
+
+        # reaction path frame to isolate widgets
+        frame = self["reaction path frame"] = ttk.LabelFrame(
+            self["frame"],
+            borderwidth=4,
+            relief="sunken",
+            text="Reaction Path Parameters",
+            labelanchor="n",
+            padding=10,
+        )
+
+        for key in ReactionPathParameters.parameters:
+            if key not in ("results",):
+                self[key] = P[key].widget(frame)
+
+        # and binding to change as needed
+        for key in ("approach", "neb method"):
+            self[key].combobox.bind(
+                "<<ComboboxSelected>>", self.reset_reaction_path_frame
+            )
+
+        # structure handling frame to isolate widgets
+        frame = self["handling frame"] = ttk.LabelFrame(
+            self["frame"],
+            borderwidth=4,
+            relief="sunken",
+            text="Structure Handling",
+            labelanchor="n",
+            padding=10,
+        )
+
+        widgets = []
+        row = 0
+        for key in (
+            "structure handling",
+            "subsequent structure handling",
+            "system name",
+            "configuration name",
+        ):
+            self[key] = P[key].widget(frame)
+            self[key].grid(row=row, column=0, sticky=tk.EW)
+            widgets.append(self[key])
+            row += 1
+        sw.align_labels(widgets, sticky=tk.E)
+
+        # and lay them out
+        self.reset_dialog()
+
+        self.setup_results()
+
+    def reset_dialog(self, widget=None):
+        """Layout the widgets in the dialog.
+
+        The widgets are chosen by default from the information in
+        Diffusivity parameters.
+
+        This function simply lays them out row by row with
+        aligned labels. You may wish a more complicated layout that
+        is controlled by values of some of the control parameters.
+        If so, edit or override this method
+
+        Parameters
+        ----------
+        widget : Tk Widget = None
+
+        Returns
+        -------
+        None
+
+        See Also
+        --------
+        TkDiffusivity.create_dialog
+        """
+
+        # Remove any widgets previously packed
+        frame = self["frame"]
+        for slave in frame.grid_slaves():
+            slave.grid_forget()
+
+        row = 0
+
+        self["reaction path frame"].grid(row=row, column=0, sticky=tk.EW, pady=10)
+        row += 1
+        self.reset_reaction_path_frame()
+
+        self["handling frame"].grid(row=row, column=0, sticky=tk.EW, pady=10)
+        row += 1
+
+        return row
+
+    def reset_reaction_path_frame(self, widget=None):
+        """Layout the widgets in the reaction path frame
+        as needed for the current state"""
+
+        approach = self["approach"].get()
+
+        frame = self["reaction path frame"]
+        for slave in frame.grid_slaves():
+            slave.grid_forget()
+
+        row = 0
+
+        # Main controls
+        widgets = []
+        widgets2 = []
+        for key in ("approach",):
+            self[key].grid(row=row, column=0, columnspan=2, sticky=tk.W)
+            widgets.append(self[key])
+            row += 1
+
+        if approach == "Interpolate path":
+            for key in (
+                "reactant",
+                "product",
+                "interpolation method",
+                "number of intermediate structures",
+                "remove rotation and translation",
+            ):
+                self[key].grid(row=row, column=0, columnspan=2, sticky=tk.EW)
+                widgets2.append(self[key])
+                row += 1
+        elif approach == "Nudged Elastic Band":
+            method = self["neb method"].get().lower()
+            if "auto" in method:
+                for key in (
+                    "neb method",
+                    "reactant",
+                    "product",
+                    "interpolation method",
+                    "number of active images",
+                    "number of intermediate structures",
+                    "convergence",
+                    "max steps",
+                    "climbing image",
+                    "max climbing steps",
+                    "initial optimizer",
+                    "continue if not converged",
+                    "on success",
+                    "on error",
+                ):
+                    self[key].grid(row=row, column=0, columnspan=2, sticky=tk.EW)
+                    widgets2.append(self[key])
+                    row += 1
+            else:
+                for key in (
+                    "neb method",
+                    "neb algorithm",
+                    "reactant",
+                    "product",
+                    "intermediate structures",
+                    "interpolation method",
+                    "number of intermediate structures",
+                    "remove rotation and translation",
+                    "max steps",
+                    "convergence",
+                    "climbing image",
+                    "max climbing steps",
+                    "neb optimizer",
+                    "spring constant",
+                    "continue if not converged",
+                    "on success",
+                    "on error",
+                ):
+                    self[key].grid(row=row, column=0, columnspan=2, sticky=tk.EW)
+                    widgets2.append(self[key])
+                    row += 1
+
+        w1 = sw.align_labels(widgets, sticky=tk.E)
+        w2 = sw.align_labels(widgets2, sticky=tk.E)
+        frame.columnconfigure(0, minsize=w1 - w2 + 50)
 
     def right_click(self, event):
         """

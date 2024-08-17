@@ -9,6 +9,7 @@ A SEAMM plugin for finding transition states and reaction paths
 # the reaction_path_step package.
 
 from .reaction_path import ReactionPath  # noqa: F401, E501
+from .reaction_path_parameters import ReactionPathParameters  # noqa: F401, E501
 from .reaction_path_step import ReactionPathStep  # noqa: F401, E501
 from .tk_reaction_path import TkReactionPath  # noqa: F401, E501
 

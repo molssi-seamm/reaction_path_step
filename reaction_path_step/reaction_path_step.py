@@ -32,8 +32,10 @@ class ReactionPathStep(object):
     """
 
     my_description = {
-        "description": "An interface for Reaction Path",
-        "group": "Simulations",
+        "description": (
+            "An interface for calculating reaction paths and transition states."
+        ),
+        "group": "Properties",
         "name": "Reaction Path",
     }
 

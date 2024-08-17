@@ -131,16 +131,23 @@ type : str
 units : str
     Optional units for the result. If present, the value should be in these units.
 """
-# metadata["results"] = {
-#     "total_energy": {
-#         "calculation": [
-#             "energy",
-#             "optimization",
-#         ],
-#         "description": "The total energy",
-#         "dimensionality": "scalar",
-#         "property": "total energy#ReactionPath#{model}",
-#         "type": "float",
-#         "units": "E_h",
-#     },
-# }
+metadata["results"] = {
+    "energy": {
+        "description": "The total energy",
+        "dimensionality": "scalar",
+        "type": "float",
+        "units": "kJ/mol",
+    },
+    "nsteps": {
+        "description": "The number of steps in the optimization",
+        "dimensionality": "scalar",
+        "type": "int",
+        "units": "",
+    },
+    "converged": {
+        "description": "Whether the optimization converged",
+        "dimensionality": "scalar",
+        "type": "bool",
+        "units": "",
+    },
+}
