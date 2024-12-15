@@ -229,8 +229,8 @@ class ReactionPath(seamm.Node):
             self._working_directory / f"RXN_path_{self._last_step:04d}.graph",
             path,
             E,
-            fit_path,
-            fit_E,
+            None,
+            None,
             lines,
         )
         # and to the main directory
@@ -239,8 +239,8 @@ class ReactionPath(seamm.Node):
             Path(self.directory) / "RXN_path.graph",
             path,
             E,
-            fit_path,
-            fit_E,
+            None,
+            None,
             lines,
         )
 
@@ -1077,16 +1077,17 @@ class ReactionPath(seamm.Node):
             text += "will be interpolated using the {interpolation method} method "
             text += "to create {number of intermediate structures} intermediate "
             text += "structures. "
-            if P["remove rotation and translation"] == "yes":
-                text += "The products will be rotated and translated to best overlay "
-                text += "the reactants."
-            elif P["remove rotation and translation"] == "no":
+            remove = P["remove rotation and translation"]
+            if remove == "no":
                 text += "The products will not be translated and rotated to best "
                 text += "overlay the reactants."
-            else:
-                text += "Whether to rotate and translate the producst to best overlay "
+            elif self.is_expr(remove):
+                text += "Whether to rotate and translate the products to best overlay "
                 text += "the reactants will be determined by "
                 text += "{remove rotation and translation}."
+            else:
+                text += "The products will be rotated and translated to best overlay "
+                text += f"the reactants {remove}."
         elif "neb" in approach or "nudge" in approach:
             text = "The reaction path will be explored using nudged elastic band "
             text += "method ({neb method}) using the {neb algorithm}, converging to "
@@ -1105,6 +1106,22 @@ class ReactionPath(seamm.Node):
                     max_steps = int(tmp[0]) * natoms
             text += f"with a maximum of {max_steps} steps."
 
+            remove = P["remove rotation and translation"]
+            if self.is_expr(remove):
+                text += " Whether to rotate and translate the products to best overlay "
+                text += "the reactants will be determined by "
+                text += "{remove rotation and translation}."
+            elif "once" in remove or "every" in remove:
+                text += " The products will be rotated and translated to best overlay "
+                text += f"the reactants {remove}."
+            elif remove == "no":
+                text += " The products will not be translated and rotated to best "
+                text += "overlay the reactants."
+            else:
+                raise ValueError(
+                    "Don't understand option to remove rotation and translation: "
+                    f"'{remove}'"
+                )
             stop = P["continue if not converged"]
             if isinstance(stop, bool) and not stop or stop == "no":
                 text += " The workflow will continue if the NEB "
@@ -1324,14 +1341,14 @@ class ReactionPath(seamm.Node):
                 images += [ASE_reactants.copy()]
             images += [ASE_products]
 
-            if P["remove rotation and translation"]:
+            if P["remove rotation and translation"] != "no":
                 ASE_minimize_rotation_and_translation(images[0], images[-1])
-
-                ASE_interpolate(images)
 
             if "idpp" in method:
                 # Use the Image Dependent Pair Potential (IDPP) approach (like LST!)
                 ASE_idpp_interpolate(images=images, traj=None, log=None)
+            else:
+                ASE_interpolate(images)
 
         # Create a new system with the images
         configurations = []
@@ -1449,14 +1466,14 @@ class ReactionPath(seamm.Node):
         images[-1].calc.get_potential_energy(atoms=images[-1])
 
         # Set up the NEB calculation
-        remove = P["remove rotation and translation"]
-        remove = False
+        remove = "every" in P["remove rotation and translation"]
         spring_constant = P["spring constant"].m_as("eV/Å^2")
         convergence = P["convergence"].m_as("eV/Å")
 
         raise_exception = False
         error = None
         tic = time.perf_counter_ns()
+        converged = False
         try:
             with OutputHandler(self.log_calculator):
                 neb = ASE_NEB(
@@ -1480,7 +1497,7 @@ class ReactionPath(seamm.Node):
                             "Don't recognize NEB optimizer '" + P["neb optimizer"] + "'"
                         )
                 self.optimizer = optimizer
-                optimizer.run(fmax=convergence, steps=max_steps)
+                converged = optimizer.run(fmax=convergence, steps=max_steps)
         except Exception as err:  # noqa: F841
             self.logger.error("Caught exception: ", err)
             error = err
@@ -1490,7 +1507,12 @@ class ReactionPath(seamm.Node):
             self.analyze(step=self._step)
 
             printer.normal("")
-            text = f"The NEB calculation converged in {self._step} iterations. "
+            if converged:
+                text = f"The NEB calculation converged in {self._step} iterations. "
+            else:
+                text = (
+                    f"The NEB calculation did not converge in {self._step} iterations. "
+                )
             printer.normal(__(text, indent=indent))
         finally:
             toc = time.perf_counter_ns()
@@ -1527,6 +1549,11 @@ class ReactionPath(seamm.Node):
                 subdirectories = sorted(subdirectories)
                 for subdirectory in subdirectories[:-1]:
                     shutil.rmtree(subdirectory)
+
+        if not converged and not P["continue if not converged"]:
+            raise RuntimeError(
+                f"The NEB calculation did not converge in {self._step} iterations"
+            )
 
     def plot_path(self, step, plot_path, path, energies, fit_path, fit_energies, lines):
         """Plot the reaction path the to file 'plot'.
@@ -1571,17 +1598,18 @@ class ReactionPath(seamm.Node):
             color="#4dbd74",
         )
 
-        plot.add_trace(
-            x_axis=x_axis,
-            y_axis=y_axis,
-            name="Fit",
-            x=list(fit_path),
-            xlabel="position",
-            y=list(fit_energies),
-            ylabel="Efit",
-            yunits="kJ/mol",
-            color="#000000",
-        )
+        if fit_path is not None and fit_energies is not None:
+            plot.add_trace(
+                x_axis=x_axis,
+                y_axis=y_axis,
+                name="Fit",
+                x=list(fit_path),
+                xlabel="position",
+                y=list(fit_energies),
+                ylabel="Efit",
+                yunits="kJ/mol",
+                color="#000000",
+            )
 
         figure.grid_plots("rxn_path")
 
@@ -1706,7 +1734,7 @@ class ReactionPath(seamm.Node):
             configurations,
             extension=".sdf",
             remove_hydrogens=False,
-            printer=printer.important,
+            printer=None,
             references=self.references,
             bibliography=self._bibliography,
         )

@@ -98,10 +98,10 @@ class ReactionPathParameters(seamm.Parameters):
             "help_text": "How to interpolate needed structures at the beginning",
         },
         "remove rotation and translation": {
-            "default": "yes",
-            "kind": "boolean",
+            "default": "once before starting",
+            "kind": "enum",
             "default_units": "",
-            "enumeration": ("yes", "no"),
+            "enumeration": ("once before starting", "every step", "no"),
             "format_string": "",
             "description": "Remove rotation and translation:",
             "help_text": (
@@ -176,7 +176,7 @@ class ReactionPathParameters(seamm.Parameters):
             "help_text": "The intermediate structures.",
         },
         "spring constant": {
-            "default": 50,
+            "default": 500,
             "kind": "float",
             "default_units": "kJ/mol/Å^2",
             "enumeration": tuple(),
@@ -241,7 +241,7 @@ class ReactionPathParameters(seamm.Parameters):
             "help_text": "The optimizer to use for the reactant and product.",
         },
         "convergence": {
-            "default": 50.0,
+            "default": 100.0,
             "kind": "float",
             "default_units": "kJ/mol/Å",
             "enumeration": tuple(),
@@ -250,10 +250,10 @@ class ReactionPathParameters(seamm.Parameters):
             "help_text": "The criterion for convergence of the optimizer.",
         },
         "max steps": {
-            "default": "12 * natoms",
+            "default": "300",
             "kind": "integer",
             "default_units": "",
-            "enumeration": ("6 * natoms", "12 * natoms", "18 * natoms"),
+            "enumeration": tuple(),
             "format_string": "",
             "description": "Maximum # of steps:",
             "help_text": "The maximum number of steps to take.",

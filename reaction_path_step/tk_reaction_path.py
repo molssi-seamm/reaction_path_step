@@ -236,6 +236,7 @@ class TkReactionPath(seamm.TkNode):
         as needed for the current state"""
 
         approach = self["approach"].get()
+        remove = self["remove rotation and translation"].get()
 
         frame = self["reaction path frame"]
         for slave in frame.grid_slaves():
@@ -252,6 +253,10 @@ class TkReactionPath(seamm.TkNode):
             row += 1
 
         if approach == "Interpolate path":
+            self["remove rotation and translation"].config(values=("yes", "no"))
+            if not self.is_expr(remove) and remove != "no":
+                self["remove rotation and translation"].set("yes")
+
             for key in (
                 "reactant",
                 "product",
@@ -263,6 +268,11 @@ class TkReactionPath(seamm.TkNode):
                 widgets2.append(self[key])
                 row += 1
         elif approach == "Nudged Elastic Band":
+            values = ("once before starting", "every step", "no")
+            self["remove rotation and translation"].config(values=values)
+            if not self.is_expr(remove) and remove not in values:
+                self["remove rotation and translation"].set(values[0])
+
             method = self["neb method"].get().lower()
             if "auto" in method:
                 for key in (
