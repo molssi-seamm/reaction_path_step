@@ -1,3 +1,9 @@
+ase
+molsystem
+numpy
+read-structure-step
 seamm
+seamm-ase
 seamm-util
 seamm-widgets
+tabulate

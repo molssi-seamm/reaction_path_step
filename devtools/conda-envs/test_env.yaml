@@ -9,7 +9,12 @@ dependencies:
   - pip
 
   # SEAMM
+  - ase
+  - molsystem
   - seamm
+  - seamm-util
+  - seamm-widgets
+  - tabulate
 
   # Testing
   - black
@@ -24,6 +29,8 @@ dependencies:
 
   # Pip-only installs
   - pip:
+    - read-structure-step
+    - seamm-ase
     # Documentation
     - sphinx-copybutton
     - sphinxnotes-strike
