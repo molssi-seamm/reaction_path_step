@@ -1,14 +1,13 @@
 # -*- coding: utf-8 -*-
 
-"""Non-graphical part of the Reaction Path step in a SEAMM flowchart
-"""
+"""Non-graphical part of the Reaction Path step in a SEAMM flowchart"""
 
 import contextlib
 from datetime import datetime
+import importlib
 import json
 import logging
 from pathlib import Path
-import pkg_resources
 import pprint  # noqa: F401
 import shutil
 import sys
@@ -52,7 +51,7 @@ job = printing.getPrinter()
 printer = printing.getPrinter("Reaction Path")
 
 # Add this module's properties to the standard properties
-path = Path(pkg_resources.resource_filename(__name__, "data/"))
+path = importlib.resources.files("reaction_path_step") / "data"
 csv_file = path / "properties.csv"
 if path.exists():
     molsystem.add_properties_from_file(csv_file)
@@ -365,6 +364,44 @@ class ReactionPath(seamm.Node):
         P : dict()
             The control parameters for the step.
         """
+        # Citations
+        self.references.cite(
+            raw=self._bibliography["neb:1998"],
+            alias="neb:1998",
+            module="reaction_path_step",
+            level=1,
+            note="First NEB citation",
+        )
+        self.references.cite(
+            raw=self._bibliography["neb:2000"],
+            alias="neb:2000",
+            module="reaction_path_step",
+            level=1,
+            note="Second NEB citation",
+        )
+        self.references.cite(
+            raw=self._bibliography["neb:2019"],
+            alias="neb:2019",
+            module="reaction_path_step",
+            level=1,
+            note="Preconditioning for NEB",
+        )
+        self.references.cite(
+            raw=self._bibliography["autoneb"],
+            alias="autoneb",
+            module="reaction_path_step",
+            level=1,
+            note="First NEB citation",
+        )
+        if P["climbing image"]:
+            self.references.cite(
+                raw=self._bibliography["ci-neb:2000"],
+                alias="ci-neb:2000",
+                module="reaction_path_step",
+                level=1,
+                note="Climbing image NEB",
+            )
+
         self._data = {
             "step": [],
             "energy": [],
@@ -1347,6 +1384,13 @@ class ReactionPath(seamm.Node):
             if "idpp" in method:
                 # Use the Image Dependent Pair Potential (IDPP) approach (like LST!)
                 ASE_idpp_interpolate(images=images, traj=None, log=None)
+                self.references.cite(
+                    raw=self._bibliography["idpp:2014"],
+                    alias="idpp:2014",
+                    module="reaction_path_step",
+                    level=1,
+                    note="IDDP interpolation method",
+                )
             else:
                 ASE_interpolate(images)
 
@@ -1394,6 +1438,37 @@ class ReactionPath(seamm.Node):
         P : dict()
             The control parameters for the step.
         """
+        # Citations
+        self.references.cite(
+            raw=self._bibliography["neb:1998"],
+            alias="neb:1998",
+            module="reaction_path_step",
+            level=1,
+            note="First NEB citation",
+        )
+        self.references.cite(
+            raw=self._bibliography["neb:2000"],
+            alias="neb:2000",
+            module="reaction_path_step",
+            level=1,
+            note="Second NEB citation",
+        )
+        self.references.cite(
+            raw=self._bibliography["neb:2019"],
+            alias="neb:2019",
+            module="reaction_path_step",
+            level=1,
+            note="Preconditioning for NEB",
+        )
+        if P["climbing image"]:
+            self.references.cite(
+                raw=self._bibliography["ci-neb:2000"],
+                alias="ci-neb:2000",
+                module="reaction_path_step",
+                level=1,
+                note="Climbing image NEB",
+            )
+
         # Initialization
         wd = Path(self.directory)
         indent = self.indent + 4 * " "

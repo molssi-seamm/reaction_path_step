@@ -1,6 +1,7 @@
 =======
 History
 =======
+2026.3.1 -- Internal: switching from deprecated library pkg_resources to importlib
 
 2024.12.14 -- Enhancements to control and to output
     * Cleaned up the control parameters to make them more consistent, and updated
