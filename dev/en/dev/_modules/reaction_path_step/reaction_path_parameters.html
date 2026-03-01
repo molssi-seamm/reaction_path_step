@@ -1,0 +1,880 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>reaction_path_step.reaction_path_parameters &#8212; SEAMM Reaction Path Plug-in 2024.12.14+1.gc4f89e6 documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../../_static/css/custom.css?v=c224919a" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+    <script src="../../_static/documentation_options.js?v=7ef15cb7"></script>
+    <script src="../../_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="../../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '_modules/reaction_path_step/reaction_path_parameters';</script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="2024.12.14+1.gc4f89e6" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/SEAMM logo.png" class="logo__image only-light" alt=""/>
+    <img src="../../_static/SEAMM Inverted 288x181.png" class="logo__image only-dark pst-js-only" alt=""/>
+  
+  
+    <p class="title logo__title">Reaction Path</p>
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../getting_started/index.html">
+    Getting Started
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../user_guide/index.html">
+    User Guide
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../developer_guide/index.html">
+    Developer Documentation
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../api/index.html">
+    API Documentation
+  </a>
+</li>
+
+            <li class="nav-item dropdown">
+                <button class="btn dropdown-toggle nav-item" type="button"
+                data-bs-toggle="dropdown" aria-expanded="false"
+                aria-controls="pst-nav-more-links">
+                    More
+                </button>
+                <ul id="pst-nav-more-links" class="dropdown-menu">
+                    
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../../authors.html">
+    Development Team
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../../history.html">
+    History
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-external" href="https://molssi-seamm.github.io">
+    Main SEAMM documentation
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-external" href="https://molssi-seamm.github.io">
+    SEAMM Documentation
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-external" href="https://molssi.org">
+    MolSSI
+  </a>
+</li>
+
+                </ul>
+            </li>
+            
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+      
+        <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/molssi-seamm/geometry_analysis_step" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://twitter.com/MolSSI_NSF" title="Twitter" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-square-twitter fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">Twitter</span></a>
+        </li>
+</ul></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar hide-on-wide">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../getting_started/index.html">
+    Getting Started
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../user_guide/index.html">
+    User Guide
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../developer_guide/index.html">
+    Developer Documentation
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../api/index.html">
+    API Documentation
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../authors.html">
+    Development Team
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../history.html">
+    History
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-external" href="https://molssi-seamm.github.io">
+    Main SEAMM documentation
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-external" href="https://molssi-seamm.github.io">
+    SEAMM Documentation
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-external" href="https://molssi.org">
+    MolSSI
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+        
+          <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/molssi-seamm/geometry_analysis_step" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://twitter.com/MolSSI_NSF" title="Twitter" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-square-twitter fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">Twitter</span></a>
+        </li>
+</ul></div>
+        
+      </div>
+    
+  </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    
+    <li class="breadcrumb-item"><a href="../index.html" class="nav-link">Module code</a></li>
+    
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">reaction_path_step.reaction_path_parameters</span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <h1>Source code for reaction_path_step.reaction_path_parameters</h1><div class="highlight"><pre>
+<span></span><span class="c1"># -*- coding: utf-8 -*-</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Control parameters for the Reaction Path step in a SEAMM flowchart</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">logging</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">seamm</span>
+
+<span class="n">logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
+
+
+<div class="viewcode-block" id="ReactionPathParameters">
+<a class="viewcode-back" href="../../developer/reaction_path_step.html#reaction_path_step.reaction_path_parameters.ReactionPathParameters">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">ReactionPathParameters</span><span class="p">(</span><span class="n">seamm</span><span class="o">.</span><span class="n">Parameters</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    The control parameters for Reaction Path.</span>
+
+<span class="sd">    You need to replace the &quot;time&quot; entry in dictionary below these comments with the</span>
+<span class="sd">    definitions of parameters to control this step. The keys are parameters for the</span>
+<span class="sd">    current plugin,the values are dictionaries as outlined below.</span>
+
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    ::</span>
+
+<span class="sd">        parameters = {</span>
+<span class="sd">            &quot;time&quot;: {</span>
+<span class="sd">                &quot;default&quot;: 100.0,</span>
+<span class="sd">                &quot;kind&quot;: &quot;float&quot;,</span>
+<span class="sd">                &quot;default_units&quot;: &quot;ps&quot;,</span>
+<span class="sd">                &quot;enumeration&quot;: tuple(),</span>
+<span class="sd">                &quot;format_string&quot;: &quot;.1f&quot;,</span>
+<span class="sd">                &quot;description&quot;: &quot;Simulation time:&quot;,</span>
+<span class="sd">                &quot;help_text&quot;: (&quot;The time to simulate in the dynamics run.&quot;)</span>
+<span class="sd">            },</span>
+<span class="sd">        }</span>
+
+<span class="sd">    parameters : {str: {str: str}}</span>
+<span class="sd">        A dictionary containing the parameters for the current step.</span>
+<span class="sd">        Each key of the dictionary is a dictionary that contains the</span>
+<span class="sd">        the following keys:</span>
+
+<span class="sd">    parameters[&quot;default&quot;] :</span>
+<span class="sd">        The default value of the parameter, used to reset it.</span>
+
+<span class="sd">    parameters[&quot;kind&quot;] : enum()</span>
+<span class="sd">        Specifies the kind of a variable. One of  &quot;integer&quot;, &quot;float&quot;, &quot;string&quot;,</span>
+<span class="sd">        &quot;boolean&quot;, or &quot;enum&quot;</span>
+
+<span class="sd">        While the &quot;kind&quot; of a variable might be a numeric value, it may still have</span>
+<span class="sd">        enumerated custom values meaningful to the user. For instance, if the parameter</span>
+<span class="sd">        is a convergence criterion for an optimizer, custom values like &quot;normal&quot;,</span>
+<span class="sd">        &quot;precise&quot;, etc, might be adequate. In addition, any parameter can be set to a</span>
+<span class="sd">        variable of expression, indicated by having &quot;$&quot; as the first character in the</span>
+<span class="sd">        field. For example, $OPTIMIZER_CONV.</span>
+
+<span class="sd">    parameters[&quot;default_units&quot;] : str</span>
+<span class="sd">        The default units, used for resetting the value.</span>
+
+<span class="sd">    parameters[&quot;enumeration&quot;] : tuple</span>
+<span class="sd">        A tuple of enumerated values.</span>
+
+<span class="sd">    parameters[&quot;format_string&quot;] : str</span>
+<span class="sd">        A format string for &quot;pretty&quot; output.</span>
+
+<span class="sd">    parameters[&quot;description&quot;] : str</span>
+<span class="sd">        A short string used as a prompt in the GUI.</span>
+
+<span class="sd">    parameters[&quot;help_text&quot;] : str</span>
+<span class="sd">        A longer string to display as help for the user.</span>
+
+<span class="sd">    See Also</span>
+<span class="sd">    --------</span>
+<span class="sd">    ReactionPath, TkReactionPath, ReactionPath ReactionPathParameters, ReactionPathStep</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">parameters</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s2">&quot;approach&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s2">&quot;default&quot;</span><span class="p">:</span> <span class="s2">&quot;Nudged Elastic Band (NEB)&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;kind&quot;</span><span class="p">:</span> <span class="s2">&quot;enum&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;default_units&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;enumeration&quot;</span><span class="p">:</span> <span class="p">(</span>
+                <span class="s2">&quot;Interpolate path&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;Nudged Elastic Band (NEB)&quot;</span><span class="p">,</span>
+            <span class="p">),</span>
+            <span class="s2">&quot;format_string&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;Approach:&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;help_text&quot;</span><span class="p">:</span> <span class="s2">&quot;The approach or method for determining the reaction path.&quot;</span><span class="p">,</span>
+        <span class="p">},</span>
+        <span class="s2">&quot;interpolation method&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s2">&quot;default&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;kind&quot;</span><span class="p">:</span> <span class="s2">&quot;enum&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;default_units&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;enumeration&quot;</span><span class="p">:</span> <span class="p">(</span>
+                <span class="s2">&quot;Image Dependent Pair Potential (IDPP)&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;Linear&quot;</span><span class="p">,</span>
+            <span class="p">),</span>
+            <span class="s2">&quot;format_string&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;Interpolation method:&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;help_text&quot;</span><span class="p">:</span> <span class="s2">&quot;How to interpolate needed structures at the beginning&quot;</span><span class="p">,</span>
+        <span class="p">},</span>
+        <span class="s2">&quot;remove rotation and translation&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s2">&quot;default&quot;</span><span class="p">:</span> <span class="s2">&quot;once before starting&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;kind&quot;</span><span class="p">:</span> <span class="s2">&quot;enum&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;default_units&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;enumeration&quot;</span><span class="p">:</span> <span class="p">(</span><span class="s2">&quot;once before starting&quot;</span><span class="p">,</span> <span class="s2">&quot;every step&quot;</span><span class="p">,</span> <span class="s2">&quot;no&quot;</span><span class="p">),</span>
+            <span class="s2">&quot;format_string&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;Remove rotation and translation:&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;help_text&quot;</span><span class="p">:</span> <span class="p">(</span>
+                <span class="s2">&quot;Whether to remove any rotation and translation between reactants and &quot;</span>
+                <span class="s2">&quot;products&quot;</span>
+            <span class="p">),</span>
+        <span class="p">},</span>
+        <span class="s2">&quot;number of intermediate structures&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s2">&quot;default&quot;</span><span class="p">:</span> <span class="mi">5</span><span class="p">,</span>
+            <span class="s2">&quot;kind&quot;</span><span class="p">:</span> <span class="s2">&quot;integer&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;default_units&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;enumeration&quot;</span><span class="p">:</span> <span class="nb">tuple</span><span class="p">(),</span>
+            <span class="s2">&quot;format_string&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;Number of intermediates:&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;help_text&quot;</span><span class="p">:</span> <span class="p">(</span>
+                <span class="s2">&quot;The number of intermediate structures between reactants and products.&quot;</span>
+            <span class="p">),</span>
+        <span class="p">},</span>
+        <span class="s2">&quot;neb method&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s2">&quot;default&quot;</span><span class="p">:</span> <span class="s2">&quot;NEB&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;kind&quot;</span><span class="p">:</span> <span class="s2">&quot;enum&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;default_units&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;enumeration&quot;</span><span class="p">:</span> <span class="p">(</span><span class="s2">&quot;NEB&quot;</span><span class="p">,</span> <span class="s2">&quot;AutoNEB&quot;</span><span class="p">),</span>
+            <span class="s2">&quot;format_string&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;Method:&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;help_text&quot;</span><span class="p">:</span> <span class="s2">&quot;The NEB method to use.&quot;</span><span class="p">,</span>
+        <span class="p">},</span>
+        <span class="s2">&quot;neb algorithm&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s2">&quot;default&quot;</span><span class="p">:</span> <span class="s2">&quot;aseneb&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;kind&quot;</span><span class="p">:</span> <span class="s2">&quot;enum&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;default_units&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;enumeration&quot;</span><span class="p">:</span> <span class="p">(</span>
+                <span class="s2">&quot;ase neb&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;improved tangent&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;eb&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;spline&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;string&quot;</span><span class="p">,</span>
+            <span class="p">),</span>
+            <span class="s2">&quot;format_string&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;Algorithm:&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;help_text&quot;</span><span class="p">:</span> <span class="s2">&quot;The NEB algorithm to use.&quot;</span><span class="p">,</span>
+        <span class="p">},</span>
+        <span class="s2">&quot;reactant&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s2">&quot;default&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;kind&quot;</span><span class="p">:</span> <span class="s2">&quot;string&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;default_units&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;enumeration&quot;</span><span class="p">:</span> <span class="p">(</span><span class="s2">&quot;current configuration&quot;</span><span class="p">,</span> <span class="s2">&quot;&lt;system&gt;/&lt;configuration&gt;&quot;</span><span class="p">),</span>
+            <span class="s2">&quot;format_string&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;Reactant:&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;help_text&quot;</span><span class="p">:</span> <span class="s2">&quot;The reactant structure.&quot;</span><span class="p">,</span>
+        <span class="p">},</span>
+        <span class="s2">&quot;product&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s2">&quot;default&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;kind&quot;</span><span class="p">:</span> <span class="s2">&quot;string&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;default_units&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;enumeration&quot;</span><span class="p">:</span> <span class="p">(</span><span class="s2">&quot;current configuration&quot;</span><span class="p">,</span> <span class="s2">&quot;&lt;system&gt;/&lt;configuration&gt;&quot;</span><span class="p">),</span>
+            <span class="s2">&quot;format_string&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;Product:&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;help_text&quot;</span><span class="p">:</span> <span class="s2">&quot;The product structure.&quot;</span><span class="p">,</span>
+        <span class="p">},</span>
+        <span class="s2">&quot;intermediate structures&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s2">&quot;default&quot;</span><span class="p">:</span> <span class="s2">&quot;interpolation&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;kind&quot;</span><span class="p">:</span> <span class="s2">&quot;string&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;default_units&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;enumeration&quot;</span><span class="p">:</span> <span class="p">(</span>
+                <span class="s2">&quot;interpolatation&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;intermediate*&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;&lt;system&gt;/&lt;configuration&gt;, ...&quot;</span><span class="p">,</span>
+            <span class="p">),</span>
+            <span class="s2">&quot;format_string&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;Intermediates:&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;help_text&quot;</span><span class="p">:</span> <span class="s2">&quot;The intermediate structures.&quot;</span><span class="p">,</span>
+        <span class="p">},</span>
+        <span class="s2">&quot;spring constant&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s2">&quot;default&quot;</span><span class="p">:</span> <span class="mi">500</span><span class="p">,</span>
+            <span class="s2">&quot;kind&quot;</span><span class="p">:</span> <span class="s2">&quot;float&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;default_units&quot;</span><span class="p">:</span> <span class="s2">&quot;kJ/mol/Å^2&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;enumeration&quot;</span><span class="p">:</span> <span class="nb">tuple</span><span class="p">(),</span>
+            <span class="s2">&quot;format_string&quot;</span><span class="p">:</span> <span class="s2">&quot;.g&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;Spring constant:&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;help_text&quot;</span><span class="p">:</span> <span class="s2">&quot;The force constant of the springs between images in the NEB.&quot;</span><span class="p">,</span>
+        <span class="p">},</span>
+        <span class="s2">&quot;number of active images&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s2">&quot;default&quot;</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span>
+            <span class="s2">&quot;kind&quot;</span><span class="p">:</span> <span class="s2">&quot;integer&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;default_units&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;enumeration&quot;</span><span class="p">:</span> <span class="nb">tuple</span><span class="p">(),</span>
+            <span class="s2">&quot;format_string&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;Number of active images:&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;help_text&quot;</span><span class="p">:</span> <span class="s2">&quot;The number of simultaneously active images to use.&quot;</span><span class="p">,</span>
+        <span class="p">},</span>
+        <span class="s2">&quot;climbing image&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s2">&quot;default&quot;</span><span class="p">:</span> <span class="s2">&quot;no&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;kind&quot;</span><span class="p">:</span> <span class="s2">&quot;boolean&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;default_units&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;enumeration&quot;</span><span class="p">:</span> <span class="p">(</span><span class="s2">&quot;yes&quot;</span><span class="p">,</span> <span class="s2">&quot;no&quot;</span><span class="p">),</span>
+            <span class="s2">&quot;format_string&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;Use climbing image (CI-NEB):&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;help_text&quot;</span><span class="p">:</span> <span class="s2">&quot;Whether to use a climbing image after convergence.&quot;</span><span class="p">,</span>
+        <span class="p">},</span>
+        <span class="s2">&quot;max climbing steps&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s2">&quot;default&quot;</span><span class="p">:</span> <span class="s2">&quot;100&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;kind&quot;</span><span class="p">:</span> <span class="s2">&quot;integer&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;default_units&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;enumeration&quot;</span><span class="p">:</span> <span class="nb">tuple</span><span class="p">(),</span>
+            <span class="s2">&quot;format_string&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;Maximum # of CI-NEB steps:&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;help_text&quot;</span><span class="p">:</span> <span class="p">(</span>
+                <span class="s2">&quot;The maximum number of steps to take in the climbing image phase.&quot;</span>
+            <span class="p">),</span>
+        <span class="p">},</span>
+        <span class="s2">&quot;neb optimizer&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s2">&quot;default&quot;</span><span class="p">:</span> <span class="s2">&quot;BFGS&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;kind&quot;</span><span class="p">:</span> <span class="s2">&quot;enum&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;default_units&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;enumeration&quot;</span><span class="p">:</span> <span class="p">(</span>
+                <span class="s2">&quot;BFGS&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;FIRE&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;MDMin&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;GPMin&quot;</span><span class="p">,</span>
+            <span class="p">),</span>
+            <span class="s2">&quot;format_string&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;NEB optimizer:&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;help_text&quot;</span><span class="p">:</span> <span class="s2">&quot;The optimizer to use in the NEB part.&quot;</span><span class="p">,</span>
+        <span class="p">},</span>
+        <span class="s2">&quot;initial optimizer&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s2">&quot;default&quot;</span><span class="p">:</span> <span class="s2">&quot;BFGSLineSearch&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;kind&quot;</span><span class="p">:</span> <span class="s2">&quot;enum&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;default_units&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;enumeration&quot;</span><span class="p">:</span> <span class="p">(</span>
+                <span class="s2">&quot;BFGSLineSearch&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;BFGS&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;FIRE&quot;</span><span class="p">,</span>
+            <span class="p">),</span>
+            <span class="s2">&quot;format_string&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;Reactant/product optimizer:&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;help_text&quot;</span><span class="p">:</span> <span class="s2">&quot;The optimizer to use for the reactant and product.&quot;</span><span class="p">,</span>
+        <span class="p">},</span>
+        <span class="s2">&quot;convergence&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s2">&quot;default&quot;</span><span class="p">:</span> <span class="mf">100.0</span><span class="p">,</span>
+            <span class="s2">&quot;kind&quot;</span><span class="p">:</span> <span class="s2">&quot;float&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;default_units&quot;</span><span class="p">:</span> <span class="s2">&quot;kJ/mol/Å&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;enumeration&quot;</span><span class="p">:</span> <span class="nb">tuple</span><span class="p">(),</span>
+            <span class="s2">&quot;format_string&quot;</span><span class="p">:</span> <span class="s2">&quot;.g&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;Convergence criterion:&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;help_text&quot;</span><span class="p">:</span> <span class="s2">&quot;The criterion for convergence of the optimizer.&quot;</span><span class="p">,</span>
+        <span class="p">},</span>
+        <span class="s2">&quot;max steps&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s2">&quot;default&quot;</span><span class="p">:</span> <span class="s2">&quot;300&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;kind&quot;</span><span class="p">:</span> <span class="s2">&quot;integer&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;default_units&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;enumeration&quot;</span><span class="p">:</span> <span class="nb">tuple</span><span class="p">(),</span>
+            <span class="s2">&quot;format_string&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;Maximum # of steps:&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;help_text&quot;</span><span class="p">:</span> <span class="s2">&quot;The maximum number of steps to take.&quot;</span><span class="p">,</span>
+        <span class="p">},</span>
+        <span class="s2">&quot;continue if not converged&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s2">&quot;default&quot;</span><span class="p">:</span> <span class="s2">&quot;no&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;kind&quot;</span><span class="p">:</span> <span class="s2">&quot;boolean&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;default_units&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;enumeration&quot;</span><span class="p">:</span> <span class="p">(</span><span class="s2">&quot;yes&quot;</span><span class="p">,</span> <span class="s2">&quot;no&quot;</span><span class="p">),</span>
+            <span class="s2">&quot;format_string&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;Continue if not converged:&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;help_text&quot;</span><span class="p">:</span> <span class="s2">&quot;Whether to stop if the optimizer does not converge.&quot;</span><span class="p">,</span>
+        <span class="p">},</span>
+        <span class="s2">&quot;on success&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s2">&quot;default&quot;</span><span class="p">:</span> <span class="s2">&quot;keep last subdirectory&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;kind&quot;</span><span class="p">:</span> <span class="s2">&quot;enum&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;default_units&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;enumeration&quot;</span><span class="p">:</span> <span class="p">(</span>
+                <span class="s2">&quot;keep last subdirectory&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;keep all subdirectories&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;delete all subdirectories&quot;</span><span class="p">,</span>
+            <span class="p">),</span>
+            <span class="s2">&quot;format_string&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;On success:&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;help_text&quot;</span><span class="p">:</span> <span class="s2">&quot;Which subdirectories to keep.&quot;</span><span class="p">,</span>
+        <span class="p">},</span>
+        <span class="s2">&quot;on error&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s2">&quot;default&quot;</span><span class="p">:</span> <span class="s2">&quot;keep all subdirectories&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;kind&quot;</span><span class="p">:</span> <span class="s2">&quot;enum&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;default_units&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;enumeration&quot;</span><span class="p">:</span> <span class="p">(</span>
+                <span class="s2">&quot;keep last subdirectory&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;keep all subdirectories&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;delete all subdirectories&quot;</span><span class="p">,</span>
+            <span class="p">),</span>
+            <span class="s2">&quot;format_string&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;On error:&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;help_text&quot;</span><span class="p">:</span> <span class="s2">&quot;Which subdirectories to keep if there is an error.&quot;</span><span class="p">,</span>
+        <span class="p">},</span>
+        <span class="s2">&quot;results&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s2">&quot;default&quot;</span><span class="p">:</span> <span class="p">{},</span>
+            <span class="s2">&quot;kind&quot;</span><span class="p">:</span> <span class="s2">&quot;dictionary&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;default_units&quot;</span><span class="p">:</span> <span class="kc">None</span><span class="p">,</span>
+            <span class="s2">&quot;enumeration&quot;</span><span class="p">:</span> <span class="nb">tuple</span><span class="p">(),</span>
+            <span class="s2">&quot;format_string&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;results&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;help_text&quot;</span><span class="p">:</span> <span class="s2">&quot;The results to save to variables or in tables.&quot;</span><span class="p">,</span>
+        <span class="p">},</span>
+    <span class="p">}</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">defaults</span><span class="o">=</span><span class="p">{},</span> <span class="n">data</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Initialize the parameters, by default with the parameters defined above</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        defaults: dict</span>
+<span class="sd">            A dictionary of parameters to initialize. The parameters</span>
+<span class="sd">            above are used first and any given will override/add to them.</span>
+<span class="sd">        data: dict</span>
+<span class="sd">            A dictionary of keys and a subdictionary with value and units</span>
+<span class="sd">            for updating the current, default values.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        None</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">&quot;ReactionPathParameters.__init__&quot;</span><span class="p">)</span>
+
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span>
+            <span class="n">defaults</span><span class="o">=</span><span class="p">{</span>
+                <span class="o">**</span><span class="n">ReactionPathParameters</span><span class="o">.</span><span class="n">parameters</span><span class="p">,</span>
+                <span class="o">**</span><span class="n">seamm</span><span class="o">.</span><span class="n">standard_parameters</span><span class="o">.</span><span class="n">structure_handling_parameters</span><span class="p">,</span>
+                <span class="o">**</span><span class="n">defaults</span><span class="p">,</span>
+            <span class="p">},</span>
+            <span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="p">,</span>
+        <span class="p">)</span>
+
+        <span class="c1"># Do any local editing of defaults</span>
+        <span class="n">tmp</span> <span class="o">=</span> <span class="bp">self</span><span class="p">[</span><span class="s2">&quot;structure handling&quot;</span><span class="p">]</span>
+        <span class="n">tmp</span><span class="o">.</span><span class="n">default</span> <span class="o">=</span> <span class="s2">&quot;Create a new system and configuration&quot;</span>
+
+        <span class="n">tmp</span> <span class="o">=</span> <span class="bp">self</span><span class="p">[</span><span class="s2">&quot;subsequent structure handling&quot;</span><span class="p">]</span>
+        <span class="n">tmp</span><span class="o">.</span><span class="n">default</span> <span class="o">=</span> <span class="s2">&quot;Create a new configuration&quot;</span>
+
+        <span class="n">tmp</span> <span class="o">=</span> <span class="bp">self</span><span class="p">[</span><span class="s2">&quot;system name&quot;</span><span class="p">]</span>
+        <span class="n">tmp</span><span class="o">.</span><span class="n">_data</span><span class="p">[</span><span class="s2">&quot;enumeration&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="o">*</span><span class="n">tmp</span><span class="o">.</span><span class="n">enumeration</span><span class="p">,</span> <span class="s2">&quot;RXN&quot;</span><span class="p">)</span>
+        <span class="n">tmp</span><span class="o">.</span><span class="n">default</span> <span class="o">=</span> <span class="s2">&quot;RXN&quot;</span>
+
+        <span class="n">tmp</span> <span class="o">=</span> <span class="bp">self</span><span class="p">[</span><span class="s2">&quot;configuration name&quot;</span><span class="p">]</span>
+        <span class="n">tmp</span><span class="o">.</span><span class="n">_data</span><span class="p">[</span><span class="s2">&quot;enumeration&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="o">*</span><span class="n">tmp</span><span class="o">.</span><span class="n">enumeration</span><span class="p">,</span> <span class="s2">&quot;image name&quot;</span><span class="p">)</span>
+        <span class="n">tmp</span><span class="o">.</span><span class="n">default</span> <span class="o">=</span> <span class="s2">&quot;image name&quot;</span></div>
+
+</pre></div>
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.16.1.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>
