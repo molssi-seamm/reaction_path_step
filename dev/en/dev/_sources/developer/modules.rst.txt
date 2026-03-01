@@ -1,7 +1,0 @@
-reaction_path_step
-==================
-
-.. toctree::
-   :maxdepth: 4
-
-   reaction_path_step

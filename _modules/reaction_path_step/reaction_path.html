@@ -534,7 +534,7 @@
 
 
 <div class="viewcode-block" id="OutputHandler">
-<a class="viewcode-back" href="../../developer/reaction_path_step.html#reaction_path_step.reaction_path.OutputHandler">[docs]</a>
+<a class="viewcode-back" href="../../api/reaction_path_step.html#reaction_path_step.reaction_path.OutputHandler">[docs]</a>
 <span class="k">class</span><span class="w"> </span><span class="nc">OutputHandler</span><span class="p">:</span>
     <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="n">keep_newlines</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Capture stdout and pass to callbacks.</span>
@@ -548,28 +548,28 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">_buffer</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
 
 <div class="viewcode-block" id="OutputHandler.add_callback">
-<a class="viewcode-back" href="../../developer/reaction_path_step.html#reaction_path_step.reaction_path.OutputHandler.add_callback">[docs]</a>
+<a class="viewcode-back" href="../../api/reaction_path_step.html#reaction_path_step.reaction_path.OutputHandler.add_callback">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">add_callback</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cb</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Add a new callback.&quot;&quot;&quot;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">callbacks</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">cb</span><span class="p">)</span></div>
 
 
 <div class="viewcode-block" id="OutputHandler.callbacks">
-<a class="viewcode-back" href="../../developer/reaction_path_step.html#reaction_path_step.reaction_path.OutputHandler.callbacks">[docs]</a>
+<a class="viewcode-back" href="../../api/reaction_path_step.html#reaction_path_step.reaction_path.OutputHandler.callbacks">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">callbacks</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Return a list of all the callbacks.&quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">callbacks</span></div>
 
 
 <div class="viewcode-block" id="OutputHandler.remove_callback">
-<a class="viewcode-back" href="../../developer/reaction_path_step.html#reaction_path_step.reaction_path.OutputHandler.remove_callback">[docs]</a>
+<a class="viewcode-back" href="../../api/reaction_path_step.html#reaction_path_step.reaction_path.OutputHandler.remove_callback">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">remove_callback</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cb</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Remove a callback.&quot;&quot;&quot;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">callbacks</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">cb</span><span class="p">)</span></div>
 
 
 <div class="viewcode-block" id="OutputHandler.write">
-<a class="viewcode-back" href="../../developer/reaction_path_step.html#reaction_path_step.reaction_path.OutputHandler.write">[docs]</a>
+<a class="viewcode-back" href="../../api/reaction_path_step.html#reaction_path_step.reaction_path.OutputHandler.write">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">write</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">txt</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Pass the text to the callbacks.</span>
 
@@ -589,7 +589,7 @@
 
 
 <div class="viewcode-block" id="OutputHandler.flush">
-<a class="viewcode-back" href="../../developer/reaction_path_step.html#reaction_path_step.reaction_path.OutputHandler.flush">[docs]</a>
+<a class="viewcode-back" href="../../api/reaction_path_step.html#reaction_path_step.reaction_path.OutputHandler.flush">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">flush</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">pass</span></div>
 
@@ -605,7 +605,7 @@
 
 
 <div class="viewcode-block" id="ReactionPath">
-<a class="viewcode-back" href="../../developer/reaction_path_step.html#reaction_path_step.reaction_path.ReactionPath">[docs]</a>
+<a class="viewcode-back" href="../../api/reaction_path_step.html#reaction_path_step.reaction_path.ReactionPath">[docs]</a>
 <span class="k">class</span><span class="w"> </span><span class="nc">ReactionPath</span><span class="p">(</span><span class="n">seamm</span><span class="o">.</span><span class="n">Node</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    The non-graphical part of a Reaction Path step in a flowchart.</span>
@@ -705,7 +705,7 @@
         <span class="k">return</span> <span class="n">reaction_path_step</span><span class="o">.</span><span class="n">__git_revision__</span>
 
 <div class="viewcode-block" id="ReactionPath.analyze">
-<a class="viewcode-back" href="../../developer/reaction_path_step.html#reaction_path_step.reaction_path.ReactionPath.analyze">[docs]</a>
+<a class="viewcode-back" href="../../api/reaction_path_step.html#reaction_path_step.reaction_path.ReactionPath.analyze">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">analyze</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">indent</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">step</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Do any analysis of the output from this step.</span>
 
@@ -838,7 +838,7 @@
 
 
 <div class="viewcode-block" id="ReactionPath.attach_calculators">
-<a class="viewcode-back" href="../../developer/reaction_path_step.html#reaction_path_step.reaction_path.ReactionPath.attach_calculators">[docs]</a>
+<a class="viewcode-back" href="../../api/reaction_path_step.html#reaction_path_step.reaction_path.ReactionPath.attach_calculators">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">attach_calculators</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">images</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Attach calculators to the images in the reaction path.&quot;&quot;&quot;</span>
         <span class="n">printer</span><span class="o">.</span><span class="n">job</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;phase </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">_phase</span><span class="si">}</span><span class="s2">, </span><span class="si">{</span><span class="n">images</span><span class="si">=}</span><span class="s2">&quot;</span><span class="p">)</span>
@@ -859,7 +859,7 @@
 
 
 <div class="viewcode-block" id="ReactionPath.auto_neb">
-<a class="viewcode-back" href="../../developer/reaction_path_step.html#reaction_path_step.reaction_path.ReactionPath.auto_neb">[docs]</a>
+<a class="viewcode-back" href="../../api/reaction_path_step.html#reaction_path_step.reaction_path.ReactionPath.auto_neb">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">auto_neb</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">P</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Do the NEB calculation.</span>
 
@@ -1085,7 +1085,7 @@
 
 
 <div class="viewcode-block" id="ReactionPath.auto_neb_handler">
-<a class="viewcode-back" href="../../developer/reaction_path_step.html#reaction_path_step.reaction_path.ReactionPath.auto_neb_handler">[docs]</a>
+<a class="viewcode-back" href="../../api/reaction_path_step.html#reaction_path_step.reaction_path.ReactionPath.auto_neb_handler">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">auto_neb_handler</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">txt</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Track what is going on in AutoNEB from the output&quot;&quot;&quot;</span>
         <span class="k">if</span> <span class="n">txt</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">&quot;Start of evaluation of the initial images&quot;</span><span class="p">):</span>
@@ -1107,7 +1107,7 @@
 
 
 <div class="viewcode-block" id="ReactionPath.calculator_for_neb">
-<a class="viewcode-back" href="../../developer/reaction_path_step.html#reaction_path_step.reaction_path.ReactionPath.calculator_for_neb">[docs]</a>
+<a class="viewcode-back" href="../../api/reaction_path_step.html#reaction_path_step.reaction_path.ReactionPath.calculator_for_neb">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">calculator_for_neb</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
         <span class="n">calculator</span><span class="p">,</span>
@@ -1353,7 +1353,7 @@
 
 
 <div class="viewcode-block" id="ReactionPath.calculator">
-<a class="viewcode-back" href="../../developer/reaction_path_step.html#reaction_path_step.reaction_path.ReactionPath.calculator">[docs]</a>
+<a class="viewcode-back" href="../../api/reaction_path_step.html#reaction_path_step.reaction_path.ReactionPath.calculator">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">calculator</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
         <span class="n">calculator</span><span class="p">,</span>
@@ -1576,7 +1576,7 @@
 
 
 <div class="viewcode-block" id="ReactionPath.create_parser">
-<a class="viewcode-back" href="../../developer/reaction_path_step.html#reaction_path_step.reaction_path.ReactionPath.create_parser">[docs]</a>
+<a class="viewcode-back" href="../../api/reaction_path_step.html#reaction_path_step.reaction_path.ReactionPath.create_parser">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">create_parser</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Setup the command-line / config file parser&quot;&quot;&quot;</span>
         <span class="n">parser_name</span> <span class="o">=</span> <span class="s2">&quot;reaction-path-step&quot;</span>
@@ -1608,7 +1608,7 @@
 
 
 <div class="viewcode-block" id="ReactionPath.description_text">
-<a class="viewcode-back" href="../../developer/reaction_path_step.html#reaction_path_step.reaction_path.ReactionPath.description_text">[docs]</a>
+<a class="viewcode-back" href="../../api/reaction_path_step.html#reaction_path_step.reaction_path.ReactionPath.description_text">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">description_text</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">P</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">short</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">natoms</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Create the text description of what this step will do.</span>
 <span class="sd">        The dictionary of control values is passed in as P so that</span>
@@ -1722,7 +1722,7 @@
 
 
 <div class="viewcode-block" id="ReactionPath.energy_profile">
-<a class="viewcode-back" href="../../developer/reaction_path_step.html#reaction_path_step.reaction_path.ReactionPath.energy_profile">[docs]</a>
+<a class="viewcode-back" href="../../api/reaction_path_step.html#reaction_path_step.reaction_path.ReactionPath.energy_profile">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">energy_profile</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">step</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Prepare the energy profile for this step&quot;&quot;&quot;</span>
         <span class="n">energies</span> <span class="o">=</span> <span class="p">{}</span>
@@ -1819,7 +1819,7 @@
 
 
 <div class="viewcode-block" id="ReactionPath.get_reactants_and_products">
-<a class="viewcode-back" href="../../developer/reaction_path_step.html#reaction_path_step.reaction_path.ReactionPath.get_reactants_and_products">[docs]</a>
+<a class="viewcode-back" href="../../api/reaction_path_step.html#reaction_path_step.reaction_path.ReactionPath.get_reactants_and_products">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">get_reactants_and_products</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">P</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Get the reactants and products systems.</span>
 
@@ -1867,7 +1867,7 @@
 
 
 <div class="viewcode-block" id="ReactionPath.interpolate">
-<a class="viewcode-back" href="../../developer/reaction_path_step.html#reaction_path_step.reaction_path.ReactionPath.interpolate">[docs]</a>
+<a class="viewcode-back" href="../../api/reaction_path_step.html#reaction_path_step.reaction_path.ReactionPath.interpolate">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">interpolate</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">P</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Interpolate the structures for the reaction</span>
 
@@ -1949,7 +1949,7 @@
 
 
 <div class="viewcode-block" id="ReactionPath.log_calculator">
-<a class="viewcode-back" href="../../developer/reaction_path_step.html#reaction_path_step.reaction_path.ReactionPath.log_calculator">[docs]</a>
+<a class="viewcode-back" href="../../api/reaction_path_step.html#reaction_path_step.reaction_path.ReactionPath.log_calculator">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">log_calculator</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">txt</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Direct captured output to the correct file.</span>
 
@@ -1963,7 +1963,7 @@
 
 
 <div class="viewcode-block" id="ReactionPath.neb">
-<a class="viewcode-back" href="../../developer/reaction_path_step.html#reaction_path_step.reaction_path.ReactionPath.neb">[docs]</a>
+<a class="viewcode-back" href="../../api/reaction_path_step.html#reaction_path_step.reaction_path.ReactionPath.neb">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">neb</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">P</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Do the NEB calculation.</span>
 
@@ -2166,7 +2166,7 @@
 
 
 <div class="viewcode-block" id="ReactionPath.plot_path">
-<a class="viewcode-back" href="../../developer/reaction_path_step.html#reaction_path_step.reaction_path.ReactionPath.plot_path">[docs]</a>
+<a class="viewcode-back" href="../../api/reaction_path_step.html#reaction_path_step.reaction_path.ReactionPath.plot_path">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">plot_path</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">step</span><span class="p">,</span> <span class="n">plot_path</span><span class="p">,</span> <span class="n">path</span><span class="p">,</span> <span class="n">energies</span><span class="p">,</span> <span class="n">fit_path</span><span class="p">,</span> <span class="n">fit_energies</span><span class="p">,</span> <span class="n">lines</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Plot the reaction path the to file &#39;plot&#39;.</span>
 
@@ -2234,7 +2234,7 @@
 
 
 <div class="viewcode-block" id="ReactionPath.run">
-<a class="viewcode-back" href="../../developer/reaction_path_step.html#reaction_path_step.reaction_path.ReactionPath.run">[docs]</a>
+<a class="viewcode-back" href="../../api/reaction_path_step.html#reaction_path_step.reaction_path.ReactionPath.run">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">run</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Run a Reaction Path step.</span>
 
@@ -2283,7 +2283,7 @@
 
 
 <div class="viewcode-block" id="ReactionPath.set_id">
-<a class="viewcode-back" href="../../developer/reaction_path_step.html#reaction_path_step.reaction_path.ReactionPath.set_id">[docs]</a>
+<a class="viewcode-back" href="../../api/reaction_path_step.html#reaction_path_step.reaction_path.ReactionPath.set_id">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">set_id</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">node_id</span><span class="o">=</span><span class="p">()):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Sequentially number the subnodes&quot;&quot;&quot;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">&quot;Setting ids for subflowchart </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="p">))</span>
@@ -2297,7 +2297,7 @@
 
 
 <div class="viewcode-block" id="ReactionPath.set_subids">
-<a class="viewcode-back" href="../../developer/reaction_path_step.html#reaction_path_step.reaction_path.ReactionPath.set_subids">[docs]</a>
+<a class="viewcode-back" href="../../api/reaction_path_step.html#reaction_path_step.reaction_path.ReactionPath.set_subids">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">set_subids</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">node_id</span><span class="o">=</span><span class="p">()):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Set the ids of the nodes in the subflowchart&quot;&quot;&quot;</span>
         <span class="n">node</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">subflowchart</span><span class="o">.</span><span class="n">get_node</span><span class="p">(</span><span class="s2">&quot;1&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">next</span><span class="p">()</span>
@@ -2308,7 +2308,7 @@
 
 
 <div class="viewcode-block" id="ReactionPath.write_structure">
-<a class="viewcode-back" href="../../developer/reaction_path_step.html#reaction_path_step.reaction_path.ReactionPath.write_structure">[docs]</a>
+<a class="viewcode-back" href="../../api/reaction_path_step.html#reaction_path_step.reaction_path.ReactionPath.write_structure">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">write_structure</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">configuration</span><span class="p">,</span> <span class="n">path</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Write the structure to disk for viewing.</span>
 
